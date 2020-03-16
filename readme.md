@@ -8,24 +8,24 @@ Protected from SQL injection & common security vulnerabilities CSRF Protection â
 - Secure Blogging System
 - Manage Author, Editor, Subscriber easily
 - Dynamically changeable every Information
-- Search post with title or keywords  
-- Google AdSense, Amazon affiliate Advertisement 
-- Google Analytics, Google tag, Facebook pixel 
+- Search post with title or keywords
+- Google AdSense, Amazon affiliate Advertisement
+- Google Analytics, Google tag, Facebook pixel
 - Two types Logo option (Image & Text)
-- 404, Search and Archive pages 
+- 404, Search and Archive pages
 - 2 Sidebars (Right Sidebar + Footer)
-- Awesome Slider, Beautiful Dashboard 
-- Awesome Feature Post Option 
-- Blog posts with 4 layouts (Slider, Feature, Classic, others) Ajax module pagination 
-- Dynamic Tag System 
+- Awesome Slider, Beautiful Dashboard
+- Awesome Feature Post Option
+- Blog posts with 4 layouts (Slider, Feature, Classic, others) Ajax module pagination
+- Dynamic Tag System
 - World most popular Disqus commenting option (with Disqus API)
-- SEO Optimized & SEO-Friendly URL 
-- Clean and Responsive Design 
-- Four layers users who will be able to manage, edit, create Blog or even just a subscriber 
-- Login with Facebook, Google, Twitter, Linkdin, Github 
-- Multi language support (New Languages Can be Added Easily) 
-- Beautiful track log system 
-- PHP/SMTP Mail support 
+- SEO Optimized & SEO-Friendly URL
+- Clean and Responsive Design
+- Four layers users who will be able to manage, edit, create Blog or even just a subscriber
+- Login with Facebook, Google, Twitter, Linkdin, Github
+- Multi language support (New Languages Can be Added Easily)
+- Beautiful track log system
+- PHP/SMTP Mail support
 - RTL Support
 
 ## Extra
@@ -52,5 +52,12 @@ Protected from SQL injection & common security vulnerabilities CSRF Protection â
 - Enable & Disable Membership System
 - Follow & Unfollow Users
 - Cookie Notice for GDPR
+
+## Access
+| User  | Email address      | Username | Password |
+|-------|--------------------|----------|----------|
+| Admin | admin@coderill.com | coderill | password |
+| User  | user@coderill.com  | username | password |
+
 
 Thanks.
