@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2020 at 07:06 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Mar 20, 2020 at 03:15 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -90,15 +90,7 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (25, 'Can add posts', 7, 'add_posts'),
 (26, 'Can change posts', 7, 'change_posts'),
 (27, 'Can delete posts', 7, 'delete_posts'),
-(28, 'Can view posts', 7, 'view_posts'),
-(29, 'Can add post', 7, 'add_post'),
-(30, 'Can change post', 7, 'change_post'),
-(31, 'Can delete post', 7, 'delete_post'),
-(32, 'Can view post', 7, 'view_post'),
-(33, 'Can add posts', 8, 'add_posts'),
-(34, 'Can change posts', 8, 'change_posts'),
-(35, 'Can delete posts', 8, 'delete_posts'),
-(36, 'Can view posts', 8, 'view_posts');
+(28, 'Can view posts', 7, 'view_posts');
 
 -- --------------------------------------------------------
 
@@ -125,7 +117,8 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$180000$i0AUTmNABgzz$t+285q5SL0g0ClzmeQeNW1aaXUrjgW+Ky5JhLdU6Muk=', '2020-03-16 16:41:53.000000', 1, 'coderill', 'Jayanta', 'Biswas', 'admin@coderill.com', 1, 1, '2020-03-16 16:41:25.000000');
+(1, 'pbkdf2_sha256$180000$eDQJSQrzfORU$NG6qL/em9WMl8rgt/S/zlOFTylIF6XR0cShSQBoZHkA=', '2020-03-20 13:28:12.000000', 1, 'coderill', 'Jayanta', 'Biswas', 'coderill@gmail.com', 1, 1, '2020-03-20 13:27:53.000000'),
+(2, 'pbkdf2_sha256$180000$PUD8ZxqA2D87$CzMaE2vM3rDSlYP8Q8niXeYxysasES4qiBsFSKnfyf0=', NULL, 0, 'testuser', '', '', '', 0, 1, '2020-03-20 13:28:34.322885');
 
 -- --------------------------------------------------------
 
@@ -167,6 +160,16 @@ CREATE TABLE `blog_posts` (
   `author_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `blog_posts`
+--
+
+INSERT INTO `blog_posts` (`id`, `title`, `content`, `status`, `created_at`, `updated_at`, `author_id`) VALUES
+(1, 'Blog 1', 'First post content.', 'publish', '2020-03-20 13:33:13.565742', '2020-03-20 13:33:28.054462', 1),
+(2, 'Blog 2', 'Second post content.', 'publish', '2020-03-20 13:34:07.664644', '2020-03-20 13:34:22.590241', 1),
+(3, 'blog 3', '3rd post content.', 'publish', '2020-03-20 13:37:54.373519', '2020-03-20 13:38:02.261769', 1),
+(4, 'blog 4', '4th post updated content.', 'publish', '2020-03-20 13:42:40.000000', '2020-03-20 13:52:54.776952', 2);
+
 -- --------------------------------------------------------
 
 --
@@ -186,8 +189,9 @@ CREATE TABLE `django_admin_log` (
 --
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
-(1, '2020-03-16 17:00:41.817093', '1', 'bjayanta.me@gmail.com', 2, '[{\"changed\": {\"fields\": [\"Username\", \"First name\", \"Last name\"]}}]', 4, 1),
-(2, '2020-03-16 17:00:59.786076', '1', 'coderill', 2, '[{\"changed\": {\"fields\": [\"Username\"]}}]', 4, 1);
+(1, '2020-03-20 13:28:34.613719', '2', 'testuser', 1, '[{\"added\": {}}]', 4, 1),
+(2, '2020-03-20 13:28:53.725639', '1', 'coderill', 2, '[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]', 4, 1),
+(3, '2020-03-20 13:52:54.791943', '4', 'blog 4', 2, '[{\"changed\": {\"fields\": [\"Content\", \"Author\"]}}]', 7, 1);
 
 -- --------------------------------------------------------
 
@@ -210,8 +214,7 @@ INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
-(7, 'blog', 'post'),
-(8, 'blog', 'posts'),
+(7, 'blog', 'posts'),
 (5, 'contenttypes', 'contenttype'),
 (6, 'sessions', 'session');
 
@@ -233,24 +236,24 @@ CREATE TABLE `django_migrations` (
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2020-03-16 16:39:07.632796'),
-(2, 'auth', '0001_initial', '2020-03-16 16:39:09.910744'),
-(3, 'admin', '0001_initial', '2020-03-16 16:39:17.620081'),
-(4, 'admin', '0002_logentry_remove_auto_add', '2020-03-16 16:39:20.614118'),
-(5, 'admin', '0003_logentry_add_action_flag_choices', '2020-03-16 16:39:20.707385'),
-(6, 'contenttypes', '0002_remove_content_type_name', '2020-03-16 16:39:22.806325'),
-(7, 'auth', '0002_alter_permission_name_max_length', '2020-03-16 16:39:23.921142'),
-(8, 'auth', '0003_alter_user_email_max_length', '2020-03-16 16:39:25.041675'),
-(9, 'auth', '0004_alter_user_username_opts', '2020-03-16 16:39:25.077581'),
-(10, 'auth', '0005_alter_user_last_login_null', '2020-03-16 16:39:25.802675'),
-(11, 'auth', '0006_require_contenttypes_0002', '2020-03-16 16:39:25.821590'),
-(12, 'auth', '0007_alter_validators_add_error_messages', '2020-03-16 16:39:25.881431'),
-(13, 'auth', '0008_alter_user_username_max_length', '2020-03-16 16:39:26.965742'),
-(14, 'auth', '0009_alter_user_last_name_max_length', '2020-03-16 16:39:27.789961'),
-(15, 'auth', '0010_alter_group_name_max_length', '2020-03-16 16:39:28.724796'),
-(16, 'auth', '0011_update_proxy_permissions', '2020-03-16 16:39:28.841518'),
-(17, 'sessions', '0001_initial', '2020-03-16 16:39:29.326587'),
-(24, 'blog', '0001_initial', '2020-03-16 18:04:56.086888');
+(1, 'contenttypes', '0001_initial', '2020-03-14 12:19:39.114896'),
+(2, 'auth', '0001_initial', '2020-03-14 12:19:40.788857'),
+(3, 'admin', '0001_initial', '2020-03-14 12:19:46.416065'),
+(4, 'admin', '0002_logentry_remove_auto_add', '2020-03-14 12:19:48.144729'),
+(5, 'admin', '0003_logentry_add_action_flag_choices', '2020-03-14 12:19:48.184705'),
+(6, 'contenttypes', '0002_remove_content_type_name', '2020-03-14 12:19:48.735396'),
+(7, 'auth', '0002_alter_permission_name_max_length', '2020-03-14 12:19:49.347033'),
+(8, 'auth', '0003_alter_user_email_max_length', '2020-03-14 12:19:50.977404'),
+(9, 'auth', '0004_alter_user_username_opts', '2020-03-14 12:19:51.034365'),
+(10, 'auth', '0005_alter_user_last_login_null', '2020-03-14 12:19:51.353184'),
+(11, 'auth', '0006_require_contenttypes_0002', '2020-03-14 12:19:51.380169'),
+(12, 'auth', '0007_alter_validators_add_error_messages', '2020-03-14 12:19:51.420159'),
+(13, 'auth', '0008_alter_user_username_max_length', '2020-03-14 12:19:51.508103'),
+(14, 'auth', '0009_alter_user_last_name_max_length', '2020-03-14 12:19:51.612038'),
+(15, 'auth', '0010_alter_group_name_max_length', '2020-03-14 12:19:52.134758'),
+(16, 'auth', '0011_update_proxy_permissions', '2020-03-14 12:19:52.155746'),
+(17, 'sessions', '0001_initial', '2020-03-14 12:19:52.447122'),
+(18, 'blog', '0001_initial', '2020-03-20 13:20:23.890103');
 
 -- --------------------------------------------------------
 
@@ -269,7 +272,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('fhrcj013ya40n7e1h3cygtwphlax9b2g', 'ZWUwZjkyOGFhOGQ1Y2JkMTE2ZmFjYTczYzkxMzFkOTQ5ZDczMmE1MTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiI3MzY2ZTBlZGVlNzNjMDZjNjBiNzIxZjUwZmFiODIwYWI0Mzg1ODVlIn0=', '2020-03-30 16:41:53.330929');
+('o9zkysoud6ol4dtqz56ec0a7otzz7ptb', 'ZmFmMWRkMDc4NTA4ZTQwNjQyNmQ4Y2Q5MmQwMDAzYzRhYmJlMjBmODp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJlYmVkOGRhYmRmOWVlOTY4NWRlMzNhNzhhYmI2YzViZmFlYWI3MTNiIn0=', '2020-04-03 13:28:12.112515');
 
 --
 -- Indexes for dumped tables
@@ -367,13 +370,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -391,7 +394,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
@@ -403,13 +406,13 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
