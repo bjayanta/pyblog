@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div>
+            <label for="username">Username</label>
+            <input type="text" name="username" required>
+        </div>
+
+        <div>
+            <label for="password">Password</label>
+            <input type="password" name="password" required>
+        </div>
+
+        <input type="submit" value="Sign In">
+        <a href="{% url 'account.signup' %}">Sign Up</a>
+    </form>
+{% endblock %}

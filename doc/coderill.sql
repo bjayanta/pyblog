@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2020 at 03:15 PM
+-- Generation Time: Mar 21, 2020 at 01:14 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.11
 
@@ -118,7 +118,9 @@ CREATE TABLE `auth_user` (
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
 (1, 'pbkdf2_sha256$180000$eDQJSQrzfORU$NG6qL/em9WMl8rgt/S/zlOFTylIF6XR0cShSQBoZHkA=', '2020-03-20 13:28:12.000000', 1, 'coderill', 'Jayanta', 'Biswas', 'coderill@gmail.com', 1, 1, '2020-03-20 13:27:53.000000'),
-(2, 'pbkdf2_sha256$180000$PUD8ZxqA2D87$CzMaE2vM3rDSlYP8Q8niXeYxysasES4qiBsFSKnfyf0=', NULL, 0, 'testuser', '', '', '', 0, 1, '2020-03-20 13:28:34.322885');
+(2, 'pbkdf2_sha256$180000$PUD8ZxqA2D87$CzMaE2vM3rDSlYP8Q8niXeYxysasES4qiBsFSKnfyf0=', NULL, 0, 'testuser', '', '', '', 0, 1, '2020-03-20 13:28:34.322885'),
+(3, 'pbkdf2_sha256$180000$acbyJAuHEEwQ$AY0qZapvHedHv/pFtFRdrGC792yscHBvhLWcmSUIpio=', NULL, 0, 'somirkm', '', '', 'somirkm@gmail.com', 0, 0, '2020-03-21 08:29:35.527100'),
+(4, 'pbkdf2_sha256$180000$9ERlxVT90LZG$fBcAGallfAnoVcqtO9rABbBlpbN+ZJixSx6BQxqCnto=', NULL, 0, 'baky', '', '', 'bakybillah.me@gmail.com', 0, 0, '2020-03-21 09:09:43.576751');
 
 -- --------------------------------------------------------
 
@@ -376,7 +378,7 @@ ALTER TABLE `auth_permission`
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
