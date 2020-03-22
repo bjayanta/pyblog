@@ -11,6 +11,7 @@ from django.core.mail import EmailMessage
 from django.conf import settings
 
 from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import CreateSignupForm
 from .utils import generate_token
@@ -105,8 +106,15 @@ class Signin(View):
 # Signout view
 class Signout(View):
     def get(self, request):
+        pass
+
+    def post(self, request):
         logout(request)
 
+        # flash message
+        messages.success(request, 'Sign out successfully!')
+
+        # redirect
         return redirect('account.signin')
 
 # Activate Account view
@@ -127,3 +135,15 @@ class Activation(View):
             return redirect('account.signin')
         else:
             return render(request, 'activate_fail.html', status=401)
+
+class Profile(LoginRequiredMixin, View):
+    login_url = '/account/'
+    redirect_field_name = 'next'
+    context = {
+        'title': 'profile',
+        'meta': '',
+    }
+
+    def get(self, request):
+        return render(request, 'profile.html', self.context)
+
