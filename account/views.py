@@ -23,7 +23,13 @@ class Signup(View):
     }
 
     def get(self, request):
+        # check authenticated or not
+        if request.user.is_authenticated:
+            return redirect('blog.home')
+
         self.context['form'] = CreateSignupForm()
+
+        # view
         return render(request, 'signup.html', self.context)
 
     def post(self, request):
@@ -71,6 +77,11 @@ class Signin(View):
     }
 
     def get(self, request):
+        # check authenticated or not
+        if request.user.is_authenticated:
+            return redirect('blog.home')
+
+        # render
         return render(request, 'signin.html', self.context)
 
     def post(self, request):
@@ -90,6 +101,13 @@ class Signin(View):
 
             # view
             return render(request, 'signin.html', status=401, context=self.context)
+
+# Signout view
+class Signout(View):
+    def get(self, request):
+        logout(request)
+
+        return redirect('account.signin')
 
 # Activate Account view
 class Activation(View):
