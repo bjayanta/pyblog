@@ -137,12 +137,14 @@ class Activation(View):
             return render(request, 'activate_fail.html', status=401)
 
 class Profile(LoginRequiredMixin, View):
-    login_url = '/account/'
-    redirect_field_name = 'next'
     context = {
         'title': 'profile',
         'meta': '',
     }
+
+    login_url = '/account/'
+    raise_exception = False  # Raise exception when no access instead of redirect
+    redirect_field_name = 'next'
 
     def get(self, request):
         return render(request, 'profile.html', self.context)
