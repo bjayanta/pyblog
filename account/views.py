@@ -95,7 +95,10 @@ class Signin(View):
             login(request, user)
 
             # redirect
-            return redirect('blog.home')
+            if 'next' in request.GET:
+                return redirect(request.GET.get('next'))
+            else:
+                return redirect('blog.home')
         else:
             # flash message
             messages.warning(request, 'Username or Password is incorrect.')
@@ -143,8 +146,8 @@ class Profile(LoginRequiredMixin, View):
     }
 
     login_url = '/account/'
-    raise_exception = False  # Raise exception when no access instead of redirect
-    redirect_field_name = 'next'
+    # raise_exception = True  # Raise exception when no access instead of redirect
+    # redirect_field_name = 'next'
 
     def get(self, request):
         return render(request, 'profile.html', self.context)
