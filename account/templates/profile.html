@@ -2,7 +2,14 @@
 
 {% block content %}
     <div>
-        <h1>Profile page</h1>
+        <figure class="figure">
+            <img src="{{ user.profile.image.url }}" class="figure-img img-fluid rounded" alt="{{ user.first_name }}">
+            <figcaption class="figure-caption">
+                <h2>{{ user.username }}</h2>
+                <p>{{ user.email }}</p>
+            </figcaption>
+        </figure>
+
 
     </div>
 {% endblock %}
