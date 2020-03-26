@@ -3,11 +3,15 @@
 {% block content %}
     {% for post in posts %}
         <article class="media">
-            <img src="{{ user.profile.image.url }}" class="mr-3" alt="{{ user.first_name }}">
+            <img src="{{ post.author.profile.image.url }}" class="mr-3" alt="{{ post.author.profile.first_name }}">
 
             <div class="media-body">
-                <h5 class="mt-0">{{ post.title }}</h5>
-                <small>By {{ post.author }} on {{ post.created_at|date:'j F, Y' }}</small>
+                <h5 class="mt-0">
+                    <a href="{% url 'blog.detail' post.id %}">{{ post.title }}</a>
+                </h5>
+
+                <small>By <strong>{{ post.author }}</strong> on <strong>{{ post.created_at|date:'j F, Y' }}</strong></small>
+
                 <p>{{ post.content }}</p>
             </div>
         </article>

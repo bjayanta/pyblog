@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- errors -->
+    {{ form.errors }}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="title">{{ form.title.label }}*</label>
+            {{ form.title }}
+        </div>
+
+        <div class="form-group">
+            <label for="content">{{ form.content.label }}*</label>
+            {{ form.content }}
+        </div>
+
+        <input type="submit" name="Create new">
+    </form>
+{% endblock %}

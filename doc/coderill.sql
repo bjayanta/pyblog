@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2020 at 06:49 PM
--- Server version: 10.3.16-MariaDB
--- PHP Version: 7.3.8
+-- Generation Time: Mar 26, 2020 at 08:53 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.3.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,8 +40,8 @@ CREATE TABLE `account_profile` (
 --
 
 INSERT INTO `account_profile` (`id`, `phone`, `image`, `user_id`) VALUES
-(9, '', 'default.png', 13),
-(10, '', 'default.png', 14);
+(1, '01903402828', 'avatar/boy.png', 5),
+(2, '01775219457', 'avatar/man.png', 1);
 
 -- --------------------------------------------------------
 
@@ -112,18 +112,10 @@ INSERT INTO `auth_permission` (`id`, `name`, `content_type_id`, `codename`) VALU
 (26, 'Can change posts', 7, 'change_posts'),
 (27, 'Can delete posts', 7, 'delete_posts'),
 (28, 'Can view posts', 7, 'view_posts'),
-(29, 'Can add post', 7, 'add_post'),
-(30, 'Can change post', 7, 'change_post'),
-(31, 'Can delete post', 7, 'delete_post'),
-(32, 'Can view post', 7, 'view_post'),
-(33, 'Can add posts', 8, 'add_posts'),
-(34, 'Can change posts', 8, 'change_posts'),
-(35, 'Can delete posts', 8, 'delete_posts'),
-(36, 'Can view posts', 8, 'view_posts'),
-(37, 'Can add profile', 9, 'add_profile'),
-(38, 'Can change profile', 9, 'change_profile'),
-(39, 'Can delete profile', 9, 'delete_profile'),
-(40, 'Can view profile', 9, 'view_profile');
+(29, 'Can add profile', 8, 'add_profile'),
+(30, 'Can change profile', 8, 'change_profile'),
+(31, 'Can delete profile', 8, 'delete_profile'),
+(32, 'Can view profile', 8, 'view_profile');
 
 -- --------------------------------------------------------
 
@@ -150,10 +142,8 @@ CREATE TABLE `auth_user` (
 --
 
 INSERT INTO `auth_user` (`id`, `password`, `last_login`, `is_superuser`, `username`, `first_name`, `last_name`, `email`, `is_staff`, `is_active`, `date_joined`) VALUES
-(1, 'pbkdf2_sha256$180000$uqSwQ6Ff9CAq$khsC00Xi+gbKaael0z/1MdhNBkmCsvJ3CTV623Iel1M=', '2020-03-25 17:35:39.385506', 1, 'coderill', 'Jayanta', 'Biswas', 'admin@coderill.com', 1, 1, '2020-03-16 16:41:25.000000'),
-(6, 'pbkdf2_sha256$180000$uqSwQ6Ff9CAq$khsC00Xi+gbKaael0z/1MdhNBkmCsvJ3CTV623Iel1M=', '2020-03-25 16:45:53.019305', 0, 'bjayanta', '', '', 'bjayanta.me@gmail.com', 0, 1, '2020-03-21 18:37:15.911804'),
-(13, 'pbkdf2_sha256$180000$0FDyYKytL7bw$wcMoh+pZzoGzh2asvH3TI2cG8ILvF+zPXVVu0Fo095A=', '2020-03-25 17:40:36.824821', 0, 'bsagor', '', '', 'bsagor.neo@gmail.com', 0, 1, '2020-03-25 17:39:08.041328'),
-(14, 'pbkdf2_sha256$180000$M7hHxbP0C1qb$yxvJnTVG59NQ3HqXL8X67fa0SeOiSSZy07RjcnoE5tY=', '2020-03-25 17:45:35.632018', 0, 'brobin', '', '', 'brobin.neo@gmail.com', 0, 1, '2020-03-25 17:44:44.231108');
+(1, 'pbkdf2_sha256$180000$eDQJSQrzfORU$NG6qL/em9WMl8rgt/S/zlOFTylIF6XR0cShSQBoZHkA=', '2020-03-26 19:45:05.007121', 1, 'coderill', 'Jayanta', 'Biswas', 'coderill@gmail.com', 1, 1, '2020-03-20 13:27:53.000000'),
+(5, 'pbkdf2_sha256$180000$aJALoLFNJJti$0Ek0eNBOIZMzt6noy+9cwmwZkE1PRFHhw5I+2zSYWU8=', '2020-03-26 19:52:42.107172', 0, 'bjayanta', '', '', 'bjayanta.neo@gmail.com', 0, 1, '2020-03-26 06:31:10.872732');
 
 -- --------------------------------------------------------
 
@@ -200,8 +190,15 @@ CREATE TABLE `blog_posts` (
 --
 
 INSERT INTO `blog_posts` (`id`, `title`, `content`, `status`, `created_at`, `updated_at`, `author_id`) VALUES
-(1, 'blog 1', 'First content.', 'publish', '2020-03-20 06:05:34.146611', '2020-03-20 06:06:18.602483', 1),
-(2, 'blog 2', '2nd content.', 'publish', '2020-03-20 06:10:58.473815', '2020-03-20 06:11:09.306177', 1);
+(5, 'What is Lorem Ipsum?', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'publish', '2020-03-26 19:21:23.997845', '2020-03-26 19:21:24.001842', 1),
+(6, 'Where does it come from?', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 'publish', '2020-03-26 19:22:11.594585', '2020-03-26 19:22:11.599581', 1),
+(7, 'Why do we use it?', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).', 'publish', '2020-03-26 19:22:34.879263', '2020-03-26 19:22:34.883246', 1),
+(8, 'Where can I get some?', 'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.', 'publish', '2020-03-26 19:22:51.220889', '2020-03-26 19:22:51.226887', 1),
+(9, 'The standard Lorem Ipsum passage, used since the 1500s', '\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\"', 'publish', '2020-03-26 19:23:28.374618', '2020-03-26 19:23:28.378607', 1),
+(10, 'Section 1.10.32 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC', '\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"', 'publish', '2020-03-26 19:28:47.406335', '2020-03-26 19:28:47.410333', 1),
+(11, '1914 translation by H. Rackham', '\"But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?\"', 'publish', '2020-03-26 19:39:10.576830', '2020-03-26 19:39:10.577829', 5),
+(12, 'Section 1.10.33 of \"de Finibus Bonorum et Malorum\", written by Cicero in 45 BC', '\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"', 'publish', '2020-03-26 19:39:26.176896', '2020-03-26 19:39:26.177907', 5),
+(13, '1914 translation by H. Rackham', '\"On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains.\"', 'publish', '2020-03-26 19:39:42.092779', '2020-03-26 19:39:42.093779', 5);
 
 -- --------------------------------------------------------
 
@@ -222,24 +219,10 @@ CREATE TABLE `django_admin_log` (
 --
 
 INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`, `action_flag`, `change_message`, `content_type_id`, `user_id`) VALUES
-(1, '2020-03-16 17:00:41.817093', '1', 'bjayanta.me@gmail.com', 2, '[{\"changed\": {\"fields\": [\"Username\", \"First name\", \"Last name\"]}}]', 4, 1),
-(2, '2020-03-16 17:00:59.786076', '1', 'coderill', 2, '[{\"changed\": {\"fields\": [\"Username\"]}}]', 4, 1),
-(3, '2020-03-20 05:42:13.820908', '2', 'testuser', 1, '[{\"added\": {}}]', 4, 1),
-(4, '2020-03-25 16:11:28.020816', '1', 'Profile object (1)', 1, '[{\"added\": {}}]', 9, 1),
-(5, '2020-03-25 16:14:27.202821', '2', 'Profile object (2)', 1, '[{\"added\": {}}]', 9, 1),
-(6, '2020-03-25 16:25:07.715518', '2', 'Profile object (2)', 3, '', 9, 1),
-(7, '2020-03-25 16:25:07.785331', '1', 'Profile object (1)', 3, '', 9, 1),
-(8, '2020-03-25 16:25:48.393464', '3', 'Profile object (3)', 1, '[{\"added\": {}}]', 9, 1),
-(9, '2020-03-25 16:25:57.198033', '4', 'Profile object (4)', 1, '[{\"added\": {}}]', 9, 1),
-(10, '2020-03-25 16:27:23.893135', '4', 'Profile object (4)', 3, '', 9, 1),
-(11, '2020-03-25 16:27:23.937016', '3', 'Profile object (3)', 3, '', 9, 1),
-(12, '2020-03-25 16:27:38.340486', '5', 'Profile object (5)', 1, '[{\"added\": {}}]', 9, 1),
-(13, '2020-03-25 16:28:30.658555', '5', 'Profile object (5)', 3, '', 9, 1),
-(14, '2020-03-25 16:28:54.548846', '6', 'Profile object (6)', 1, '[{\"added\": {}}]', 9, 1),
-(15, '2020-03-25 16:29:01.705479', '7', 'Profile object (7)', 1, '[{\"added\": {}}]', 9, 1),
-(16, '2020-03-25 17:36:01.352741', '8', 'Profile object (8)', 3, '', 9, 1),
-(17, '2020-03-25 17:36:01.408591', '7', 'Profile object (7)', 3, '', 9, 1),
-(18, '2020-03-25 17:36:01.441809', '6', 'Profile object (6)', 3, '', 9, 1);
+(1, '2020-03-20 13:28:34.613719', '2', 'testuser', 1, '[{\"added\": {}}]', 4, 1),
+(2, '2020-03-20 13:28:53.725639', '1', 'coderill', 2, '[{\"changed\": {\"fields\": [\"First name\", \"Last name\"]}}]', 4, 1),
+(3, '2020-03-20 13:52:54.791943', '4', 'blog 4', 2, '[{\"changed\": {\"fields\": [\"Content\", \"Author\"]}}]', 7, 1),
+(4, '2020-03-26 06:41:13.061061', '2', 'Profile object (2)', 1, '[{\"added\": {}}]', 8, 1);
 
 -- --------------------------------------------------------
 
@@ -258,13 +241,12 @@ CREATE TABLE `django_content_type` (
 --
 
 INSERT INTO `django_content_type` (`id`, `app_label`, `model`) VALUES
-(9, 'account', 'profile'),
+(8, 'account', 'profile'),
 (1, 'admin', 'logentry'),
 (3, 'auth', 'group'),
 (2, 'auth', 'permission'),
 (4, 'auth', 'user'),
-(7, 'blog', 'post'),
-(8, 'blog', 'posts'),
+(7, 'blog', 'posts'),
 (5, 'contenttypes', 'contenttype'),
 (6, 'sessions', 'session');
 
@@ -286,25 +268,26 @@ CREATE TABLE `django_migrations` (
 --
 
 INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
-(1, 'contenttypes', '0001_initial', '2020-03-16 16:39:07.632796'),
-(2, 'auth', '0001_initial', '2020-03-16 16:39:09.910744'),
-(3, 'admin', '0001_initial', '2020-03-16 16:39:17.620081'),
-(4, 'admin', '0002_logentry_remove_auto_add', '2020-03-16 16:39:20.614118'),
-(5, 'admin', '0003_logentry_add_action_flag_choices', '2020-03-16 16:39:20.707385'),
-(6, 'contenttypes', '0002_remove_content_type_name', '2020-03-16 16:39:22.806325'),
-(7, 'auth', '0002_alter_permission_name_max_length', '2020-03-16 16:39:23.921142'),
-(8, 'auth', '0003_alter_user_email_max_length', '2020-03-16 16:39:25.041675'),
-(9, 'auth', '0004_alter_user_username_opts', '2020-03-16 16:39:25.077581'),
-(10, 'auth', '0005_alter_user_last_login_null', '2020-03-16 16:39:25.802675'),
-(11, 'auth', '0006_require_contenttypes_0002', '2020-03-16 16:39:25.821590'),
-(12, 'auth', '0007_alter_validators_add_error_messages', '2020-03-16 16:39:25.881431'),
-(13, 'auth', '0008_alter_user_username_max_length', '2020-03-16 16:39:26.965742'),
-(14, 'auth', '0009_alter_user_last_name_max_length', '2020-03-16 16:39:27.789961'),
-(15, 'auth', '0010_alter_group_name_max_length', '2020-03-16 16:39:28.724796'),
-(16, 'auth', '0011_update_proxy_permissions', '2020-03-16 16:39:28.841518'),
-(17, 'sessions', '0001_initial', '2020-03-16 16:39:29.326587'),
-(24, 'blog', '0001_initial', '2020-03-16 18:04:56.086888'),
-(25, 'account', '0001_initial', '2020-03-25 15:57:29.302760');
+(1, 'contenttypes', '0001_initial', '2020-03-14 12:19:39.114896'),
+(2, 'auth', '0001_initial', '2020-03-14 12:19:40.788857'),
+(3, 'admin', '0001_initial', '2020-03-14 12:19:46.416065'),
+(4, 'admin', '0002_logentry_remove_auto_add', '2020-03-14 12:19:48.144729'),
+(5, 'admin', '0003_logentry_add_action_flag_choices', '2020-03-14 12:19:48.184705'),
+(6, 'contenttypes', '0002_remove_content_type_name', '2020-03-14 12:19:48.735396'),
+(7, 'auth', '0002_alter_permission_name_max_length', '2020-03-14 12:19:49.347033'),
+(8, 'auth', '0003_alter_user_email_max_length', '2020-03-14 12:19:50.977404'),
+(9, 'auth', '0004_alter_user_username_opts', '2020-03-14 12:19:51.034365'),
+(10, 'auth', '0005_alter_user_last_login_null', '2020-03-14 12:19:51.353184'),
+(11, 'auth', '0006_require_contenttypes_0002', '2020-03-14 12:19:51.380169'),
+(12, 'auth', '0007_alter_validators_add_error_messages', '2020-03-14 12:19:51.420159'),
+(13, 'auth', '0008_alter_user_username_max_length', '2020-03-14 12:19:51.508103'),
+(14, 'auth', '0009_alter_user_last_name_max_length', '2020-03-14 12:19:51.612038'),
+(15, 'auth', '0010_alter_group_name_max_length', '2020-03-14 12:19:52.134758'),
+(16, 'auth', '0011_update_proxy_permissions', '2020-03-14 12:19:52.155746'),
+(17, 'sessions', '0001_initial', '2020-03-14 12:19:52.447122'),
+(18, 'blog', '0001_initial', '2020-03-20 13:20:23.890103'),
+(19, 'account', '0001_initial', '2020-03-26 06:24:45.518154'),
+(20, 'account', '0002_auto_20200326_1224', '2020-03-26 06:24:46.073005');
 
 -- --------------------------------------------------------
 
@@ -323,9 +306,7 @@ CREATE TABLE `django_session` (
 --
 
 INSERT INTO `django_session` (`session_key`, `session_data`, `expire_date`) VALUES
-('920wsgtoolilfi1aoaslq764de131nap', 'NzI1MTVkMjNjMWYwMWMxZTA4YWYzZWYzOWZjN2E5NDU1NDc0ZDA5OTp7Il9hdXRoX3VzZXJfaWQiOiI2IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJmZWZkNDIxZTRiYjBjOTc4MzA3MjM5NjgyOTZkZjFkMjUxYWJiMDZlIn0=', '2020-04-05 17:53:27.865922'),
-('ahqu1exkpcpq7wopvxewp5u8xbpy49rp', 'NDdhOGRmMWQxOWY3MjhkNzIzNjM2NGE4ODYyMWJjODEzOTUzZmJiNDp7fQ==', '2020-04-08 17:34:03.898552'),
-('rwdntgpwrm7qx7dvw03odvcf1x6kuxqh', 'ZjQyZDdlYTVkODRiMmVjOGEyYzA0NWExY2RjMjVhNzAyMDc3MmZhMTp7Il9hdXRoX3VzZXJfaWQiOiIxNCIsIl9hdXRoX3VzZXJfYmFja2VuZCI6ImRqYW5nby5jb250cmliLmF1dGguYmFja2VuZHMuTW9kZWxCYWNrZW5kIiwiX2F1dGhfdXNlcl9oYXNoIjoiMDRhNjk1ODQwOGI2N2FhMjIwYzJlNDdiYWZhOWFhN2MzMGQ3N2NhMCJ9', '2020-04-08 17:45:35.739568');
+('t0jyqrp6egt745v28mtcsvquhebzylhm', 'OGVkNDYwYTYzMjM3YWU2OTRiNjVjNzg5ODllMTQ4ZjFhN2RhYjgzNTp7Il9hdXRoX3VzZXJfaWQiOiI1IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIzNGZkZDUyMTNlODk5ODJmMjk1NDM1YzgyYjM0OTc1N2FjMGU4ZmM2In0=', '2020-04-09 19:52:42.140153');
 
 --
 -- Indexes for dumped tables
@@ -418,7 +399,7 @@ ALTER TABLE `django_session`
 -- AUTO_INCREMENT for table `account_profile`
 --
 ALTER TABLE `account_profile`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `auth_group`
@@ -436,13 +417,13 @@ ALTER TABLE `auth_group_permissions`
 -- AUTO_INCREMENT for table `auth_permission`
 --
 ALTER TABLE `auth_permission`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `auth_user`
 --
 ALTER TABLE `auth_user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `auth_user_groups`
@@ -460,7 +441,7 @@ ALTER TABLE `auth_user_user_permissions`
 -- AUTO_INCREMENT for table `blog_posts`
 --
 ALTER TABLE `blog_posts`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `django_admin_log`
@@ -472,13 +453,13 @@ ALTER TABLE `django_admin_log`
 -- AUTO_INCREMENT for table `django_content_type`
 --
 ALTER TABLE `django_content_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Constraints for dumped tables

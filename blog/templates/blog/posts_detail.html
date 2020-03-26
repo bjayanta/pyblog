@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <article class="media">
+        <img src="{{ posts.author.profile.image.url }}" class="mr-3" alt="{{ posts.author.first_name }}">
+
+        <div class="media-body">
+            <h5 class="mt-0">{{ posts.title }}</h5>
+            <small>By <strong>{{ posts.author }}</strong> on <strong>{{ posts.created_at|date:'j F, Y' }}</strong></small>
+
+            <p>{{ posts.content }}</p>
+        </div>
+    </article>
+
+{% endblock %}
