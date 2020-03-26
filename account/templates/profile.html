@@ -2,14 +2,58 @@
 
 {% block content %}
     <div>
-        <figure class="figure">
-            <img src="{{ user.profile.image.url }}" class="figure-img img-fluid rounded" alt="{{ user.first_name }}">
-            <figcaption class="figure-caption">
-                <h2>{{ user.username }}</h2>
-                <p>{{ user.email }}</p>
-            </figcaption>
-        </figure>
+        <div class="row">
+            <!-- flash messages -->
+            <div class="col-md-12">
+                {{ form.errors }}
 
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
 
+            <div class="col-md-4">
+                <figure class="figure">
+                    <img src="{{ user.profile.image.url }}" class="figure-img img-fluid rounded" alt="{{ user.first_name }}">
+                    <figcaption class="figure-caption">
+                        <h2>{{ user.username }}</h2>
+                        <p>{{ user.email }}</p>
+                    </figcaption>
+                </figure>
+            </div>
+
+            <div class="col-md-12">
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <div class="form-group">
+                        <label for="username">{{ userForm.username.label }}*</label>
+                        {{ userForm.username }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">{{ userForm.email.label }}*</label>
+                        {{ userForm.email }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">{{ profileForm.phone.label }}</label>
+                        {{ profileForm.phone }}
+                    </div>
+
+                    <div class="form-group">
+                        <label for="image">{{ profileForm.image.label }}</label>
+                        {{ profileForm.image }}
+                    </div>
+
+                    <input type="submit" name="Create User">
+                    <a href="{% url 'account.signin' %}">Sign In</a>
+                </form>
+            </div>
+        </div>
     </div>
 {% endblock %}

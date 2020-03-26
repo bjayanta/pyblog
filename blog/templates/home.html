@@ -2,10 +2,15 @@
 
 {% block content %}
     {% for post in posts %}
-        <article>
-            <h1>{{ post.title }}</h1>
-            <small>By {{ post.author }} on {{ post.created_at|date:'j F, Y' }}</small>
-            <p>{{ post.content }}</p>
+        <article class="media">
+            <img src="{{ user.profile.image.url }}" class="mr-3" alt="{{ user.first_name }}">
+
+            <div class="media-body">
+                <h5 class="mt-0">{{ post.title }}</h5>
+                <small>By {{ post.author }} on {{ post.created_at|date:'j F, Y' }}</small>
+                <p>{{ post.content }}</p>
+            </div>
         </article>
+
     {% endfor %}
 {% endblock %}

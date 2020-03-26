@@ -13,7 +13,7 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .forms import CreateSignupForm
+from .forms import CreateSignupForm, UserUpdateForm, ProfileUpdateForm
 from .utils import generate_token
 
 # Signup or Register view
@@ -150,5 +150,29 @@ class Profile(LoginRequiredMixin, View):
     # redirect_field_name = 'next'
 
     def get(self, request):
+        # set form
+        self.context['userForm'] = UserUpdateForm(instance=request.user)
+        self.context['profileForm'] = ProfileUpdateForm(instance=request.user.profile)
+
+        # view 
+        return render(request, 'profile.html', self.context)
+    
+    def post(self, request):
+        # set form
+        self.context['userForm'] = UserUpdateForm(request.POST, instance=request.user)
+        self.context['profileForm'] = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+        # validation and save 
+        if self.context['userForm'].is_valid() and self.context['profileForm'].is_valid():
+            self.context['userForm'].save()
+            self.context['profileForm'].save()
+
+            # flash message
+            messages.success(request, f'Your account has been updated!')
+
+            # redirect
+            return redirect('account.profile')
+
+        # view 
         return render(request, 'profile.html', self.context)
 
