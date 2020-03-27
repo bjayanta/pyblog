@@ -2,13 +2,23 @@
 
 {% block content %}
     <article class="media">
-        <img src="{{ posts.author.profile.image.url }}" class="mr-3" alt="{{ posts.author.first_name }}">
+        <img src="{{ object.author.profile.image.url }}" class="mr-3" alt="{{ object.author.first_name }}">
 
         <div class="media-body">
-            <h5 class="mt-0">{{ posts.title }}</h5>
-            <small>By <strong>{{ posts.author }}</strong> on <strong>{{ posts.created_at|date:'j F, Y' }}</strong></small>
+            <h5 class="mt-0">{{ object.title }}</h5>
+            <small>
+                By <a href="{% url 'blog.user.posts' object.author.username %}"><strong>{{ object.author }}</strong></a> 
+                on <strong>{{ object.created_at|date:'j F, Y' }}</strong>
+            </small>
 
-            <p>{{ posts.content }}</p>
+            {% if object.author == user %}
+                <div>
+                    <a href="{% url 'blog.update' object.id %}" class="btn btn-sm btn-secondary">Update</a>
+                    <a href="{% url 'blog.delete' object.id %}" class="btn btn-sm btn-danger">Delete</a>
+                </div>
+            {% endif %}
+
+            <p class="mt-3">{{ object.content }}</p>
         </div>
     </article>
 

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <!-- errors -->
+    {{ form.errors }}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <h1>Delete Post<h1>
+        <h2>Are you sure you want to delete the post "{{ object.title }}"<h2>
+
+        <input type="submit" class="btn btn-danger" name="Yes, Delete">
+        <a class="btn btn-secondary" href="{% url 'blog.detail' object.id %}">Cancel</a>
+    </form>
+{% endblock %}
