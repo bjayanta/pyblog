@@ -135,12 +135,14 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# email config
-# EMAIL_HOST = os.environ.get('EMAIL_HOST')
-# EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
-# EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-# EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
-# EMAIL_PORT = os.environ.get('EMAIL_PORT')
+# Email configuration
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'coderill@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your_app_password'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_FROM_EMAIL = 'Coderill Team <noreply@coderill.com>'
 
 EMAIL_HOST='smtp.mailtrap.io'
 EMAIL_HOST_USER='a6bac68f87158a'

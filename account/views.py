@@ -154,15 +154,15 @@ class Profile(LoginRequiredMixin, View):
         self.context['userForm'] = UserUpdateForm(instance=request.user)
         self.context['profileForm'] = ProfileUpdateForm(instance=request.user.profile)
 
-        # view 
+        # view
         return render(request, 'profile.html', self.context)
-    
+
     def post(self, request):
         # set form
         self.context['userForm'] = UserUpdateForm(request.POST, instance=request.user)
         self.context['profileForm'] = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
 
-        # validation and save 
+        # validation and save
         if self.context['userForm'].is_valid() and self.context['profileForm'].is_valid():
             self.context['userForm'].save()
             self.context['profileForm'].save()
@@ -173,6 +173,5 @@ class Profile(LoginRequiredMixin, View):
             # redirect
             return redirect('account.profile')
 
-        # view 
+        # view
         return render(request, 'profile.html', self.context)
-

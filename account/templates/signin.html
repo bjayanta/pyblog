@@ -23,7 +23,11 @@
             <input type="password" name="password" required>
         </div>
 
-        <input type="submit" value="Sign In">
+        <div>
+            <input type="submit" value="Sign In">
+            <a href="{% url 'reset_password' %}">Forgot your password?</a>
+        </div>
+
         <a href="{% url 'account.signup' %}">Sign Up</a>
     </form>
 {% endblock %}
