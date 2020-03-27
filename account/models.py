@@ -7,15 +7,16 @@ class Profile(models.Model):
 
     # fields
     phone = models.CharField(max_length=15)
-    image = models.ImageField(default='default.jpg', upload_to='avatar')
+    image = models.ImageField(default='default.png', upload_to='avatar')
 
     objects = models.Manager()
 
     def __str__(self):
         return f'{self.user.username} profile'
 
-    def save(self):
-        super().save()
+    def save(self, *args, **kwargs):
+        # super().save()
+        super(Profile, self).save(*args, **kwargs)
         
         img = Image.open(self.image.path)
 
