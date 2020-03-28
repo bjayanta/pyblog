@@ -17,7 +17,7 @@
                     on <strong>{{ post.created_at|date:'j F, Y' }}</strong>
                 </small>
 
-                <p>{{ post.content }}</p>
+                <p>{{ post.content|safe }}</p>
             </div>
         </article>
     {% endfor %}

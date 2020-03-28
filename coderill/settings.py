@@ -32,6 +32,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'blog',
+    'ckeditor',
+    'ckeditor_uploader',
     'account.apps.AccountConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +42,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    # 'default': {
+    #     'toolbar': 'Custom',
+    #     'toolbar_Custom': [
+    #         ['Bold', 'Link', 'Image']
+    #     ],
+    #     'height': 300,
+    # }
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -131,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'blog/static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
